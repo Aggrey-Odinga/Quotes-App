@@ -8,18 +8,23 @@ import { Quote } from '../quote';
 })
 export class QuotesComponent implements OnInit {
 
-  quotes: Quote[] = [
-    new Quote(1, 'First Quote', 0, 0),
-    new Quote(2, 'Second Quote', 0, 0),
-    new Quote(3, 'Third Quote', 0, 0)   
+  quotes: Quote[] =[
+    new Quote (1, "Gray", "Nelson Mandela", "It always seems impossible until it's done.", 0, 0),
+    new Quote (2, "Mike", " Maya Angelou", "When someone shows you who they are believe them the first time.", 0, 0),
+    new Quote (3, "Fay", "Julius Nyerere", "Independence cannot be real if a nation depends upon gifts.", 0, 0)
+    
   ]
 
-  arr: number[] = this.quotes.map(quote=>quote.upvotes)
-  highest = Math.max(...this.arr)
 
+
+
+
+
+   arr: number[] = this.quotes.map((quote: { upvotes: any; }) =>quote.upvotes)
+  highest = Math.max(...this.arr)
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
