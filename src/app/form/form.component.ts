@@ -7,20 +7,24 @@ import { Quote } from '../quote';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  @Output() emitQuote = new EventEmitter()
-  quoteStatement!: string;
+  @Output() emitQuote = new EventEmitter<Quote>();
+  id!: number;
+  quote!: string;
   quotePublisher!: string;
   quoteAuthor!: string;
   quoteDate!: number;
   theQuote: any
+  upvotes!: number;
+  downvotes!: number;
 
   submitQuote(){
-    this.theQuote = new Quote(this.quotePublisher,this.quoteAuthor,this.quoteStatement)
+    this.theQuote = new Quote(this.id,this.quotePublisher,this.quoteAuthor,this.quote,this.upvotes,this.downvotes)
     this.quotePublisher=''
-    this.quoteStatement=''
+    this.quote=''
     this.quoteAuthor=''
     this.emitQuote.emit(this.theQuote)
   }
+  
 
 
   constructor() { }

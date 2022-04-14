@@ -14,14 +14,22 @@ export class QuotesComponent implements OnInit {
     new Quote (3, "Fay", "Julius Nyerere", "Independence cannot be real if a nation depends upon gifts.", 0, 0)
     
   ]
+addQuote(writtenQuote: Quote){
+  this.quotes.push(writtenQuote);
+}
+upvote(i: any){
+  this.quotes[i].upvotes++;
+}
+downvote(i: any) {
+    this.quotes[i].downvotes++;
+  }
+delQuote(i: number){
+  this.quotes.splice(i, 1)
+}
 
-
-
-
-
-
-   arr: number[] = this.quotes.map((quote: { upvotes: any; }) =>quote.upvotes)
+arr: number[] = this.quotes.map((quote: { upvotes: any; }) =>quote.upvotes)
   highest = Math.max(...this.arr)
+
   constructor() { }
 
   ngOnInit() {

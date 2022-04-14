@@ -7,7 +7,7 @@ import { elementAt } from 'rxjs';
 export class HighlightDirective {
 
   constructor(private elem: ElementRef) {
-    elem.nativeElement.style.backgroundColor = 'cyan'
+    elem.nativeElement.style.backgroundColor = 'purple'
    }
 
 }
